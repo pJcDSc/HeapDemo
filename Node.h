@@ -16,6 +16,9 @@ class Node {
   //Constructor
   Node(int);
 
+  //Get value of node
+  int getValue();
+  
   //Set value of node
   void setValue(int);
 
@@ -30,9 +33,16 @@ class Node {
 
   //Set right node
   void setRight(Node*);
-  
-  //Get value of node
-  int getValue();
 
   //Destructor
   ~Node();
+
+private:
+
+  Node* left;
+  Node* right;
+  int value;
+
+};
+
+#endif
