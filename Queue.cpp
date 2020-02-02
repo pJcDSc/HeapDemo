@@ -35,21 +35,12 @@ void Queue::push(Node* n) {
 //pop first element from queue
 Node* Queue::pop() {
   if (!head) return NULL; //empty queue
-  size--;
-  if (!head -> next) {    //one element queue
-    Node* temp = head -> node;
-    delete head;
-    head = NULL;
-    return temp;
-  }
-  elem* temp = head;
-  while (temp -> next -> next) {  //go to one before end of queue
-    temp = temp -> next;
-  }
-  Node* tempn = temp -> next -> node;
-  delete temp -> next;
-  temp -> next = NULL;
-  return tempn;
+  size--;                 //If we are popping size is decreased
+  Node* temp = head -> node;
+  elem* tempe = head;
+  head = head -> next;
+  delete tempe;
+  return temp;
 }
 
 //Return the size, which we are keeping track of by adding or subtracting while pushing or popping
@@ -64,7 +55,6 @@ Queue::~Queue() {
     head = head -> next;
     delete temp;
   }
-  delete head;
 }
   
  

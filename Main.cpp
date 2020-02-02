@@ -61,7 +61,7 @@ int main() {
 }
 
 void makeHeap(Node* &head, char* line) {
-  char* build = new char[strlen(line)]();           //temp string to store individual words
+  char* build = new char[strlen(line)](); //temp string to store individual words
   int ind = 0;
   for (int i = 0; i < strlen(line); i++) {
     if (line[i] == ' ') { //Space found
@@ -96,14 +96,14 @@ void addNode(Node* &head, char* nc) {
       next -> setLeft(new Node(num));
       next -> getLeft() -> setParent(next);
       reSort(next -> getLeft());
-      display(head, 0);
+      //display(head, 0);
       break;
     }
     if (!next -> getRight()) {
       next -> setRight(new Node(num));
       next -> getRight() -> setParent(next);
       reSort(next -> getRight());
-      display(head, 0);
+      //display(head, 0);
       break;
     }
     q.push(next -> getLeft());
@@ -112,8 +112,9 @@ void addNode(Node* &head, char* nc) {
 }
 
 void reSort(Node* n) {
-  if (!n || !n -> getParent()) return; //1 or empty node list
-  if (n -> getParent() -> getValue() < n -> getValue()) { //swap da values
+  if (!n || !n -> getParent()) return;              //1 or empty node list
+  if (n -> getParent() -> getValue() <
+      n -> getValue()) {                            //swap da values
     int val = n -> getValue();
     n -> setValue(n -> getParent() -> getValue());
     n -> getParent() -> setValue(val);
@@ -125,7 +126,7 @@ void reSort(Node* n) {
 //Display using sideways print based on infix navigation
 void display(Node* n, int d) {
   if (n -> getLeft()) display(n -> getLeft(), d+1);
-  for(int i = 0; i < d; i++) cout << "--";
+  for(int i = 0; i < d; i++) cout << "-  ";
   cout << n -> getValue() << endl;
   if (n -> getRight()) display(n -> getRight(), d+1);
 }
