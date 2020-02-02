@@ -33,7 +33,13 @@ class Node {
 
   //Set right node
   void setRight(Node*);
-
+  
+  //Get parent
+  Node* getParent();
+  
+  //Set parent
+  void setParent(Node*);
+  
   //Destructor
   ~Node();
 
@@ -41,6 +47,7 @@ private:
 
   Node* left;
   Node* right;
+  Node* parent;
   int value;
 
 };

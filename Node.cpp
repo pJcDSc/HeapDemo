@@ -14,6 +14,7 @@ Node::Node(int v) {
   value = v;
   right = NULL;
   left = NULL;
+  parent = NULL;
 }
 
 //Get value of node
@@ -44,6 +45,16 @@ Node* Node::getRight() {
 //Set right node
 void Node::setRight(Node* n) {
   right = n;
+}
+
+//Get pointer to parent
+Node* Node::getParent() {
+  return parent;
+}
+
+//Set parent node
+void Node::setParent(Node* n) {
+  parent = n;
 }
 
 //Destructor
